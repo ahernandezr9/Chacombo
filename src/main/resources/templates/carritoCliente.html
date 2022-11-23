@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Carrito de Compras</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <!-- Iconos -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <!-- SweertAlert2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div th:insert=" Menu :: #menu"></div>
+            <h2>Ingrese datos Cliente</h2>
+            <form action="CompraCliente" method="POST" id="FinCompra">
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Nombre:</label>
+                    <input type="text" name="nom" id="nom" class="form-control" placeholder="Ingrese nombres" >
+                </div>
+                <div class="mb-3">
+                    <label for="message-text" class="col-form-label">Correo:</label>
+                    <input type="text"  name="corr" id="corr" class="form-control" placeholder="Ingrese correo">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Telefono:</label>
+                    <input type="text" name="telf" id="telf" class="form-control" placeholder="Ingrese Telefono">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Dirección:</label>
+                    <input type="text" name="direc" id="direc" class="form-control" placeholder="Ingrese Direccion">
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Medio de Pago</label>
+                    <select class="form-select form-select-sm" name="pag">
+                        <option value="" disabled selected>Seleccione</option>
+                        <!--<div th:each="producto : ${productos}">
+                            <option th:value="${producto.precio}"><span class="card-text" th:text="${producto.Descripcion}">*Descripcion</span></option>
+                        </div>-->
+                        <option value="1">Efectivo</option>
+                        <option value="2">Tarjeta</option>
+                        <option value="3">Transferencia</option>
+                        <option value="4">Plin o Yape</option>
+                    </select>
+                </div>
+
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Medio de Entrega</label>
+                    <select class="form-select form-select-sm" name="entr">
+                        <option value="" disabled selected>Seleccione</option>
+                        <!--<div th:each="producto : ${productos}">
+                            <option th:value="${producto.precio}"><span class="card-text" th:text="${producto.Descripcion}">*Descripcion</span></option>
+                        </div>-->
+                        <option value="1">Delivery</option>
+                        <option value="2">Recojo en Tienda</option>
+                    </select>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-success"><i class="bi bi-cart-check-fill" style="font-size: 1.5em;"></i> Continuar Compra</button>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

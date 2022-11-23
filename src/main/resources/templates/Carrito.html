@@ -1,0 +1,90 @@
+
+<html>
+    <head>
+        <title>Carrito de Compras</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <!-- JavaScript Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <!-- Iconos -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <!-- SweertAlert2 -->
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <script>
+
+            function Eliminar(opcion)
+            {
+                event.preventDefault();
+
+                Swal.fire({
+                    title: '¿Estas seguro de Eliminar?',
+                    text: "¡No podrás revertir esto!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, Eliminalo!',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        Swal.fire({
+                            title: 'ELIMINADO',
+                            text: 'El producto ha sido eliminado del carrito de compras.',
+                            icon: 'Exitoso',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.href = opcion.href;
+                            }
+                        });
+
+                    }
+                });
+            }
+
+        </script>
+    </head>
+    <body>
+
+        <div class="container">
+            <div th:insert=" Menu :: #menu"></div>
+            <form action="ContinuarCompra" method="POST">
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Id Producto</th>
+                        <th>Nombre Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th>Eliminar</th>
+                    </tr>
+                    <tr th:each="detalle, status : ${detalles}">
+                        <td th:text="${status.count}"> </td>
+                        <td th:text="${detalle.IdProducto}"> </td>
+                        <td th:text="${detalle.Nombre}"> </td>
+                        <td th:text="${detalle.Precio}"> </td>
+                        <td th:text="${detalle.Cantidad}"> </td>
+                        <td th:text="${detalle.Total}"> </td>
+
+                        <td>
+                            <a onclick="return Eliminar(this)" th:href="@{EliminarCompra(id=${detalle.IdProducto})}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                        </td>
+                    </tr>
+                </table>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-success"><i class="bi bi-cart-check-fill" style="font-size: 1.5em;"></i> Continuar Compra</button>
+                </div>
+            </form>
+
+        </div>
+    </body>
+</html>

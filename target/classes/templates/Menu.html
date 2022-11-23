@@ -1,0 +1,81 @@
+<div id="menu">   
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" aria-current="page" th:href="@{/ }">
+                <img src="Logo.png" alt="logo" width="60" height="48">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link disabled"><i class="bi bi-telephone" style="font-size: 1.5em;"></i> LlÁMANOS AL 955 533 380</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="bi bi-person-fill" style="font-size: 1.5em;"></i> Iniciar sesión
+                        </button>
+                    </li>
+                </ul>
+
+                <a class="btn btn-outline-success" th:href="@{/ListarCarrito}" typed>
+                    <i class="bi bi-cart4" style="font-size: 1.5em;"></i> CARRITO
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Inicio de Sesion</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="LoginUsu" method="POST">
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <h5><label class="form-label">Usuario</label></h5>
+                            <input name="datoUsu" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <h5><label class="form-label">Contraseña</label></h5>
+                            <input name="datoCla" type="password" class="form-control" id="exampleInputPassword1">
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" name="ch"  id="ch">
+                            <label class="form-check-label">Recordar siempre</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-a">Ingresar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="menuUsuario">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+            <a class="navbar-brand" aria-current="page" href="#">
+                <img src="Logo.png" alt="logo" width="60" height="48">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li><a th:href="@{/Dashboard}" class="nav-link px-2 link-dark"><i class="bi bi-plus-circle-fill"></i> Dashboard</a></li>
+                    <li><a th:href="@{/ }" class="nav-link px-2 link-dark"><i class="bi bi-person-fill" style="font-size: 1.5em;"></i> Cerrar sesión</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

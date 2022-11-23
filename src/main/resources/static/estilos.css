@@ -1,0 +1,14 @@
+input [type="checkbox"]{ 
+    
+    float:center;
+}
+
+body{
+    
+    background: url(fondo_login.jpg);   
+    background-size: 100%;
+    <!--backdrop-filter: grayscale(30%);-->
+}
+
+
+

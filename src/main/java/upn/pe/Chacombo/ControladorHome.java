@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import upn.pe.Chacombo.Carrito.Carrito;
 import upn.pe.Chacombo.Carrito.ClienteAux;
+import upn.pe.Chacombo.Cliente.Cliente;
+import upn.pe.Chacombo.Cliente.IClienteService;
 import upn.pe.Chacombo.DetalleVenta.DetalleVenta;
 import upn.pe.Chacombo.DetalleVenta.IDetalleVentaService;
+import upn.pe.Chacombo.Funcionario.Funcionario;
+import upn.pe.Chacombo.Funcionario.IFuncionarioService;
 import upn.pe.Chacombo.Producto.IProductoService;
 import upn.pe.Chacombo.Producto.Producto;
 import upn.pe.Chacombo.Usuario.IUsuarioService;
@@ -33,8 +37,14 @@ public class ControladorHome {
     @Autowired
     private IUsuarioService serviceUsu;
     
+    @Autowired
+    private IClienteService serviceCli;
+    
+    @Autowired
+    private IFuncionarioService serviceFun;
     
     String carpetaPrd="Producto/";
+    String carpetaCli="Cliente/";
 
     @GetMapping("/")
     public String Mostrar(Model model) {
@@ -202,6 +212,124 @@ public class ControladorHome {
         model.addAttribute("producto", producto);
         
         return "listaProducto"; //listaProducto.html
+    }
+    
+    @GetMapping("/Clientes")
+    public String ListarClientes(Model model) {
+        List<Cliente> clientes = serviceCli.Listar();
+        model.addAttribute("clientes", clientes);
+        return "listaCliente"; //listacliente.html
+    }
+    
+    @GetMapping("/eliminarCli")
+    public String EliminarCliente(@RequestParam("id") int id, Model model)
+    {
+        serviceCli.Eliminar(id);
+        return "listaCliente"; //listacliente.html
+    }
+    
+    @PostMapping("/RegistrarCli")
+    public String RegistrarCliente(@RequestParam("nom") String nom,
+                            @RequestParam("corr") String corr,
+                            @RequestParam("telf") String telf,
+                            @RequestParam("dire") String dire,
+                            Model model)
+    {
+        Cliente c = new Cliente();
+        c.setNombres(nom);
+        c.setCorreo(corr);
+        c.setTelefono(telf);
+        c.setDireccion(dire);
+        
+        serviceCli.Guardar(c);
+        
+        return "listaCliente"; //listacliente.html
+    }
+    
+    @PostMapping("/actualizarCli")
+    public String ActualizarCliente(@RequestParam("id") int id,
+                            @RequestParam("nombres") String nom,
+                            @RequestParam("correo") String corr,
+                            @RequestParam("telefono") String telf,
+                            @RequestParam("direccion") String dire,
+                            Model model)
+    {
+        Cliente c = new Cliente();
+        c.setIdCliente(id);
+        c.setNombres(nom);
+        c.setCorreo(corr);
+        c.setTelefono(telf);
+        c.setDireccion(dire);
+        
+        serviceCli.Guardar(c);
+        
+        return "indexUsuario"; //listacliente.html
+    }
+    
+    @GetMapping("/editarCli")
+    public String EditarCliente(@RequestParam("id") int id, Model model)
+    {
+        Optional<Cliente> cliente = serviceCli.ConsultarId(id);
+        model.addAttribute("cliente", cliente);
+        
+        return "listaCliente"; //listacliente.html
+    }
+    
+    @GetMapping("/Funcionarios")
+    public String ListarFuncionarios(Model model) {
+        List<Funcionario> funcionarios = serviceFun.Listar();
+        model.addAttribute("funcionarios", funcionarios);
+        return "listaFuncionario"; //listaFuncionario.html
+    }
+    
+    @GetMapping("/eliminarFun")
+    public String EliminarFuncionario(@RequestParam("id") int id, Model model)
+    {
+        serviceCli.Eliminar(id);
+        return "listaFuncionario"; //listaFuncionario.html
+    }
+    
+    @PostMapping("/RegistrarFun")
+    public String RegistrarFuncionario(@RequestParam("nom") String nom,
+                            @RequestParam("dni") String dni,
+                            @RequestParam("corr") String corr,
+                            Model model)
+    {
+        Funcionario f = new Funcionario();
+        f.setNombre(nom);
+        f.setDni(dni);
+        f.setCorreo(corr);
+        
+        serviceFun.Guardar(f);
+        
+        return "listaFuncionario"; //listaFuncionario.html
+    }
+    
+    @PostMapping("/actualizarFun")
+    public String ActualizarFun(@RequestParam("id") int id,
+                            @RequestParam("dni") String dni,
+                            @RequestParam("nombre") String nom,
+                            @RequestParam("correo") String corr,
+                            Model model)
+    {
+        Funcionario f = new Funcionario();
+        f.setIdFuncionario(id);
+        f.setNombre(nom);
+        f.setDni(dni);
+        f.setCorreo(corr);
+        
+        serviceFun.Guardar(f);
+        
+        return "indexUsuario"; //listaFuncionario.html
+    }
+    
+    @GetMapping("/editarFun")
+    public String EditarFun(@RequestParam("id") int id, Model model)
+    {
+        Optional<Funcionario> funcionario = serviceFun.ConsultarId(id);
+        model.addAttribute("funcionario", funcionario);
+        
+        return "listaFuncionario"; //listaFuncionario.html
     }
 
 }

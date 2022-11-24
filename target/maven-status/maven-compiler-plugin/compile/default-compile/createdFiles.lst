@@ -1,4 +1,5 @@
 upn\pe\Chacombo\Pago\PagoService.class
+upn\pe\Chacombo\Cliente\IClienteService.class
 upn\pe\Chacombo\Entrega\IEntrega.class
 upn\pe\Chacombo\DetalleVenta\DetalleVentaService.class
 upn\pe\Chacombo\Entrega\EntregaService.class
@@ -6,15 +7,18 @@ upn\pe\Chacombo\Funcionario\Funcionario.class
 upn\pe\Chacombo\Producto\IProductoService.class
 upn\pe\Chacombo\Usuario\IUsuarioService.class
 upn\pe\Chacombo\DetalleVenta\DetalleVenta.class
+upn\pe\Chacombo\Cliente\ICliente.class
 upn\pe\Chacombo\Pago\IPagoService.class
 upn\pe\Chacombo\Carrito\Carrito.class
 upn\pe\Chacombo\DetalleVenta\IDetalleVentaService.class
 upn\pe\Chacombo\DetalleVenta\IDetalleVenta.class
+upn\pe\Chacombo\Funcionario\FuncionarioService.class
 upn\pe\Chacombo\Entrega\IEntregaService.class
 upn\pe\Chacombo\Producto\ProductoService.class
 upn\pe\Chacombo\ControladorHome.class
 upn\pe\Chacombo\ChacomboApplication.class
 upn\pe\Chacombo\Carrito\ClienteAux.class
+upn\pe\Chacombo\Cliente\ClienteService.class
 upn\pe\Chacombo\Producto\Producto.class
 upn\pe\Chacombo\Usuario\Usuario.class
 upn\pe\Chacombo\Cliente\Cliente.class
@@ -23,5 +27,7 @@ upn\pe\Chacombo\Usuario\UsuarioService.class
 upn\pe\Chacombo\Entrega\Entrega.class
 upn\pe\Chacombo\Producto\IProducto.class
 upn\pe\Chacombo\Pago\Pago.class
+upn\pe\Chacombo\Funcionario\IFuncionario.class
+upn\pe\Chacombo\Funcionario\IFuncionarioService.class
 upn\pe\Chacombo\Usuario\IUsuario.class
 upn\pe\Chacombo\Pago\IPago.class

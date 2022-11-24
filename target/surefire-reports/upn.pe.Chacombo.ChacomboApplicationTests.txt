@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: upn.pe.Chacombo.ChacomboApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.964 s - in upn.pe.Chacombo.ChacomboApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.84 s - in upn.pe.Chacombo.ChacomboApplicationTests

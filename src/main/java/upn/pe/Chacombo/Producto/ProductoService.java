@@ -29,4 +29,19 @@ public class ProductoService implements IProductoService {
     public void Eliminar(int id) {
         data.deleteById(id);
     }
+
+    @Override
+    public List<Producto> OrdenAscendenteProd() {
+        return data.OrderAscProd();
+    }
+
+    @Override
+    public List<Producto> OrdenDescendenteProd() {
+        return data.OrderDescProd();
+    }
+
+    @Override
+    public List<Producto> Buscar(String dato) {
+        return data.buscarPorTodo(dato);
+    }
 }

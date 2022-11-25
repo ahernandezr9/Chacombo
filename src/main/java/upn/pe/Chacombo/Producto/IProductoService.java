@@ -8,4 +8,7 @@ public interface IProductoService {
     public Optional<Producto> ConsultarId(int id);
     public void Guardar(Producto p);
     public void Eliminar(int id);
+    public List<Producto> Buscar(String dato);
+    public List<Producto> OrdenAscendenteProd();
+    public List<Producto> OrdenDescendenteProd();
 }

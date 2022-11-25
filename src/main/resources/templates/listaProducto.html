@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Productos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- CSS only -->
@@ -16,14 +16,14 @@
             function Registrar()
             {
                 event.preventDefault();
-
+                
+                const imag = document.getElementById("imag").value;
+                const tip = document.getElementById("tip").value;
+                const prec = document.getElementById("prec").value;
                 const nom = document.getElementById("nom").value;
                 const desc = document.getElementById("desc").value;
-                const prec = document.getElementById("prec").value;
-                const tip = document.getElementById("tip").value;
-                const imag = document.getElementById("imag").value;
-
-
+                
+                
                 if (nom == "" || desc == "" || prec == "" || tip == "" || imag == "")
                 {
                     //Puedes aqui poner una alerta: llene los campos
@@ -64,7 +64,7 @@
                     });
                 }
             }
-            
+
             function Actualizar()
             {
                 event.preventDefault();
@@ -151,14 +151,14 @@
                     }
                 });
             }
-            
+
             function Editar()
             {
                 const exampleModal = document.getElementById('modalEditar');
                 exampleModal.addEventListener('show.bs.modal', event => {
                     // Button that triggered the modal
                     const button = event.relatedTarget;
-                    
+
                     //Datos
                     const id = button.getAttribute('data-bs-id');
                     const nom = button.getAttribute('data-bs-nom');
@@ -166,7 +166,7 @@
                     const prec = button.getAttribute('data-bs-prec');
                     const tip = button.getAttribute('data-bs-tip');
                     const image = button.getAttribute('data-bs-imag');
-                   
+
                     //Campos
                     const campoId = document.getElementById('id');
                     const campoNom = document.getElementById('nomx');
@@ -174,7 +174,7 @@
                     const campoPrec = document.getElementById('precx');
                     const campoTip = document.getElementById('tipx');
                     const campoImag = document.getElementById('imagx');
-                    
+
                     //Colocar los datos a los campos
                     campoId.value = id;
                     campoNom.value = nom;
@@ -190,18 +190,18 @@
         <div class="container">
             <div th:insert=" Menu :: #menuUsuario"></div>
             <br>
-            
+
             <div>
                 <a th:href="@{orden_ascProd}" class="btn btn-warning"><i class="bi bi-sort-up"></i></a>
                 <a th:href="@{orden_descProd}" class="btn btn-info"><i class="bi bi-sort-down"></i></a>
             </div>
-            
+
             <br>
             <form class="d-flex" role="search" action="buscarProd" method="POST">
                 <input class="form-control me-2" name="dato" type="search" placeholder="Buscar" aria-label="Buscar">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
-            
+            <br>
             <div>
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="bi bi-plus-circle"></i></button>
             </div>
@@ -283,7 +283,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Model EDITAR/ACTUALIZAR -->
         <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

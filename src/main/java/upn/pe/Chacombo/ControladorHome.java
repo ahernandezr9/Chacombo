@@ -460,7 +460,7 @@ public class ControladorHome {
         return "listaUsuario"; //listaFuncionario.html
     }
     
-    @GetMapping("/eliminarFun")
+    @GetMapping("/eliminarUsu")
     public String EliminarUsuarios(@RequestParam("id") int id, Model model) {
         serviceFun.Eliminar(id);
         return "listaUsuario"; //listaFuncionario.html

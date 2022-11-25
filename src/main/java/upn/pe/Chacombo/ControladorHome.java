@@ -385,6 +385,30 @@ public class ControladorHome {
         model.addAttribute("clientes", clientes);
         return "listaCliente"; //listaproductos.html
     }
+    
+    @GetMapping("/orden_ascProd")
+    public String OrdenarAscProd(Model model)
+    {
+        List<Producto> productos= service.OrdenAscendenteProd();
+        model.addAttribute("productos", productos);
+        return "listaProducto"; //listaproductos.html
+    }
+    
+    @GetMapping("/orden_descProd")
+    public String OrdenarDescProd(Model model)
+    {
+        List<Producto> productos = service.OrdenDescendenteProd();
+        model.addAttribute("productos", productos);
+        return "listaProducto"; //listaproductos.html
+    }
+    
+    @PostMapping("/buscarProd")
+    public String BuscarProd(@RequestParam("dato") String dato, Model model)
+    {
+        List<Producto> productos = service.Buscar(dato);
+        model.addAttribute("productos", productos);
+        return "listaProducto"; //listaproductos.html
+    }
 }
 
 

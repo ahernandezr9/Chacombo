@@ -13,57 +13,7 @@
         <!-- SweetAlert2-->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
-            function Registrar()
-            {
-                event.preventDefault();
 
-                const nom = document.getElementById("nom").value;
-                const corr = document.getElementById("corr").value;
-                const telf = document.getElementById("telf").value;
-                const dire = document.getElementById("dire").value;
-
-
-                if (nom == "" || corr == "" || telf == "" || dire == "")
-                {
-                    //Puedes aqui poner una alerta: llene los campos
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong!',
-                        footer: '<a href="">Why do I have this issue?</a>'
-                    });
-
-                } else
-                {
-                    Swal.fire({
-                        title: 'Do you want to save the changes?',
-                        showDenyButton: true,
-                        showCancelButton: true,
-                        confirmButtonText: 'Save',
-                        denyButtonText: `Don't save`,
-                        allowOutsideClick: false,
-                        allowEscapeKey: false
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire({
-                                title: 'Saved!',
-                                text: '',
-                                icon: 'success',
-                                allowOutsideClick: false,
-                                allowEscapeKey: false
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    const formulario = document.getElementById("RegistrarCli");
-                                    formulario.submit();
-                                }
-                            });
-                        } else if (result.isDenied) {
-                            Swal.fire('Changes are not saved', '', 'info');
-                        }
-                    });
-                }
-            }
-            
             function Actualizar()
             {
                 event.preventDefault();
@@ -199,9 +149,6 @@
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
             
-            <div>
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="bi bi-plus-circle"></i></button>
-            </div>
             <br>
             <div class="container bg-white text-dark" style="--bs-bg-opacity: .8;">
 
@@ -236,42 +183,6 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-        </div>
-
-        <!-- Model REGISTRAR -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Cliente</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="RegistrarCli" method="POST" id="RegistrarCli">
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Nombres:</label>
-                                <input type="text" name="nom" id="nom" class="form-control" placeholder="Ingrese Nombres" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">Correo:</label>
-                                <input type="text" name="corr" id="corr" class="form-control" placeholder="Ingrese Correo" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Telefono:</label>
-                               <input type="text" name="telf" id="telf" class="form-control" placeholder="Ingrese Telefono" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="message-text" class="col-form-label">Direccion:</label>
-                                <input type="text" name="dire" id="dire" class="form-control" placeholder="Ingrese Direccion" >
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button onclick="return Registrar()" type="button" class="btn btn-primary">Registrar</button>
-                    </div>
-                </div>
             </div>
         </div>
         

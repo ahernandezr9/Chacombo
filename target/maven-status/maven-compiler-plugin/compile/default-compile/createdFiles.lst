@@ -1,6 +1,7 @@
 upn\pe\Chacombo\Pago\PagoService.class
 upn\pe\Chacombo\Cliente\IClienteService.class
 upn\pe\Chacombo\Entrega\IEntrega.class
+upn\pe\Chacombo\Venta\VentaService.class
 upn\pe\Chacombo\DetalleVenta\DetalleVentaService.class
 upn\pe\Chacombo\Entrega\EntregaService.class
 upn\pe\Chacombo\Funcionario\Funcionario.class
@@ -9,7 +10,9 @@ upn\pe\Chacombo\Usuario\IUsuarioService.class
 upn\pe\Chacombo\DetalleVenta\DetalleVenta.class
 upn\pe\Chacombo\Cliente\ICliente.class
 upn\pe\Chacombo\Pago\IPagoService.class
+upn\pe\Chacombo\Venta\IVenta.class
 upn\pe\Chacombo\Carrito\Carrito.class
+upn\pe\Chacombo\Venta\IVentaService.class
 upn\pe\Chacombo\DetalleVenta\IDetalleVentaService.class
 upn\pe\Chacombo\DetalleVenta\IDetalleVenta.class
 upn\pe\Chacombo\Funcionario\FuncionarioService.class

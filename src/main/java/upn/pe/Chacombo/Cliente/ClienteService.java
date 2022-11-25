@@ -31,6 +31,11 @@ public class ClienteService implements IClienteService{
     }
     
     @Override
+    public int IdMaxCliente() {
+        return data.BuscarIdMax();
+    }
+    
+    @Override
     public List<Cliente> Buscar(String dato) {
 
         return data.buscarPorTodo(dato);

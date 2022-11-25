@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Confirmar Venta</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -50,15 +50,35 @@
                     <td th:text="${detalleCli.Nombres}"> </td>
                     <td th:text="${detalleCli.Telefono}"> </td>
                     <td th:text="${detalleCli.Direccion}"> </td>
-                    <td th:text="${detalleCli.IdPago}"> </td>
-                    <td th:text="${detalleCli.IdEntrega}"> </td>
+                    <!-- <td th:text="${detalleCli.IdPago}"> </td>-->
+                    <td th:if="${detalleCli.IdPago == 1}" th:text="Efectivo" ></td>
+                    <td th:if="${detalleCli.IdPago == 2}" th:text="Tarjeta" ></td>
+                    <td th:if="${detalleCli.IdPago == 3}" th:text="Transferencia" ></td>
+                    <td th:if="${detalleCli.IdPago == 4}" th:text="Plin" ></td>
+                    <!--<td th:text="${detalleCli.IdEntrega}"> </td>-->
+                    <td th:if="${detalleCli.IdEntrega == 1}" th:text="Delivery"></td>
+                    <td th:if="${detalleCli.IdEntrega == 2}" th:text="RecojoEnTienda"></td>
                 </tr>
             </table>
-            <br>
-            <h2>Total</h2>
-            <div th:each="detalleCli : ${detalleCliente}">
-                <p class="card-text" th:text="${detalleCli.Total_Pago}"></p>
-            </div>
+            <br>            
+            <form action="FinCompra" method="POST" id="FinCompra">
+                <h2>Total a Pagar</h2>
+                <div th:each="detalleCli : ${detalleCliente}">
+                    <p class="card-text" th:text="${detalleCli.Total_Pago}"></p>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-success"><i class="bi bi-cart-check-fill" style="font-size: 1.5em;"></i> Finalizar Compra</button>
+                </div>
+                <div th:each="detalleCli : ${detalleCliente}">
+                    <input type="hidden" th:value="${detalleCli.IdPago}" name="pag" required="required">
+                    <input type="hidden" th:value="${detalleCli.IdEntrega}" name="entr" required="required">
+                </div>
+                
+                <div th:each="detallePrd : ${detalleProducto}">
+                    <input type="hidden" th:value="${detallePrd.IdProducto}" name="pro" required="required">
+                    <!--<input type="hidden" th:value="${detallePrd.Cantidad}" name="cant" required="required">-->
+                </div>
+            </form>
         </div>
     </body>
 </html>

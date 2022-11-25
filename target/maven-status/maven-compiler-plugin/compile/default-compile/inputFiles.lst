@@ -13,10 +13,12 @@ C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\j
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Cliente\ClienteService.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Funcionario\IFuncionarioService.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\DetalleVenta\DetalleVenta.java
+C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Venta\IVentaService.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Pago\IPagoService.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Carrito\Carrito.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Producto\Producto.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Cliente\Cliente.java
+C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Venta\IVenta.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Usuario\Usuario.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Entrega\IEntregaService.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Usuario\UsuarioService.java
@@ -29,5 +31,6 @@ C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\j
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Pago\Pago.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\ControladorHome.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\DetalleVenta\IDetalleVentaService.java
+C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Venta\VentaService.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Funcionario\Funcionario.java
 C:\Users\LENOVO\Documents\Abam_bkp\UPN\Soluciones Web\Spring\Chacombo\src\main\java\upn\pe\Chacombo\Pago\IPago.java

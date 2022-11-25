@@ -30,4 +30,24 @@ public class ClienteService implements IClienteService{
         data.deleteById(id);
     }
     
+    @Override
+    public List<Cliente> Buscar(String dato) {
+
+        return data.buscarPorTodo(dato);
+    }
+    
+    @Override
+    public List<Cliente> OrdenAscendenteCli() {
+        return data.OrderAscCli();
+
+    }
+
+    @Override
+    public List<Cliente> OrdenDescendenteCli() {
+        return data.OrderDescCli();
+
+    }
+
+    
+    
 }

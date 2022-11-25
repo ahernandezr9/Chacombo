@@ -45,6 +45,7 @@ public class ControladorHome {
     
     String carpetaPrd="Producto/";
     String carpetaCli="Cliente/";
+    String carpetaFun="Funcionario/";
 
     @GetMapping("/")
     public String Mostrar(Model model) {
@@ -282,10 +283,11 @@ public class ControladorHome {
         return "listaFuncionario"; //listaFuncionario.html
     }
     
+    
     @GetMapping("/eliminarFun")
     public String EliminarFuncionario(@RequestParam("id") int id, Model model)
     {
-        serviceCli.Eliminar(id);
+        serviceFun.Eliminar(id);
         return "listaFuncionario"; //listaFuncionario.html
     }
     
@@ -332,4 +334,57 @@ public class ControladorHome {
         return "listaFuncionario"; //listaFuncionario.html
     }
 
+    
+    
+    @PostMapping("/buscarFun")
+    public String Buscar(@RequestParam("dato") String dato, Model model)
+    {
+        List<Funcionario> funcionarios = serviceFun.Buscar(dato);
+        model.addAttribute("funcionarios", funcionarios);
+        return "listaFuncionario"; //listaproductos.html
+    }
+    
+    @PostMapping("/buscarCli")
+    public String BuscarCli(@RequestParam("dato") String dato, Model model)
+    {
+        List<Cliente> clientes = serviceCli.Buscar(dato);
+        model.addAttribute("clientes", clientes);
+        return "listaCliente"; //listaproductos.html
+    }
+    
+    
+    @GetMapping("/orden_ascFun")
+    public String OrdenarAsc(Model model)
+    {
+        List<Funcionario> funcionarios = serviceFun.OrdenAscendente();
+        model.addAttribute("funcionarios", funcionarios);
+        return "listaFuncionario"; //listaproductos.html
+    }
+    
+    @GetMapping("/orden_descFun")
+    public String OrdenarDesc(Model model)
+    {
+        List<Funcionario> funcionarios = serviceFun.OrdenDescendente();
+        model.addAttribute("funcionarios", funcionarios);
+        return "listaFuncionario"; //listaproductos.html
+    }
+    
+    
+    @GetMapping("/orden_asccli")
+    public String OrdenarAscCli(Model model)
+    {
+        List<Cliente> clientes = serviceCli.OrdenAscendenteCli();
+        model.addAttribute("clientes", clientes);
+        return "listaCliente"; //listaproductos.html
+    }
+    
+    @GetMapping("/orden_desccli")
+    public String OrdenarDescCli(Model model)
+    {
+        List<Cliente> clientes = serviceCli.OrdenDescendenteCli();
+        model.addAttribute("clientes", clientes);
+        return "listaCliente"; //listaproductos.html
+    }
 }
+
+

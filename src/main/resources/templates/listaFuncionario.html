@@ -180,10 +180,24 @@
         <div class="container">
             <div th:insert=" Menu :: #menuUsuario"></div>
             <br>
+            
+            <div>
+                <a th:href="@{orden_ascFun}" class="btn btn-warning"><i class="bi bi-sort-up"></i></a>
+                <a th:href="@{orden_descFun}" class="btn btn-info"><i class="bi bi-sort-down"></i></a>
+            </div>
+            <br>
+            <form class="d-flex" role="search" action="buscarFun" method="POST">
+                <input class="form-control me-2" name="dato" type="search" placeholder="Buscar" aria-label="Buscar">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </form>
+            
             <div>
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="bi bi-plus-circle"></i></button>
             </div>
             <br>
+            
+            
+            
             <div class="container bg-white text-dark" style="--bs-bg-opacity: .8;">
 
                 <table class="table table-striped" id="tableAtencion">
@@ -227,7 +241,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="RegistrarFun" method="POST" id="RegistrarPrd">
+                        <form action="RegistrarFun" method="POST" id="RegistrarFun">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Nombres:</label>
                                 <input type="text" name="nom" id="nom" class="form-control" placeholder="Ingrese Nombres" >
@@ -259,7 +273,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="actualizarFun" method="POST" id="actualizarPrd">
+                        <form action="actualizarFun" method="POST" id="actualizarFun">
                             <input type="hidden" name="id" id="id">
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Nombre:</label>

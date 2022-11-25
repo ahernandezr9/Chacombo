@@ -8,4 +8,7 @@ public interface IClienteService {
     public Optional<Cliente> ConsultarId(int id);
     public void Guardar(Cliente c);
     public void Eliminar(int id);
+    public List<Cliente> Buscar(String dato);
+    public List<Cliente> OrdenAscendenteCli();
+    public List<Cliente> OrdenDescendenteCli();
 }

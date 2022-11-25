@@ -8,4 +8,7 @@ public interface IFuncionarioService {
     public Optional<Funcionario> ConsultarId(int id);
     public void Guardar(Funcionario f);
     public void Eliminar(int id);
+    public List<Funcionario> Buscar(String dato);
+    public List<Funcionario> OrdenAscendente();
+    public List<Funcionario> OrdenDescendente();
 }

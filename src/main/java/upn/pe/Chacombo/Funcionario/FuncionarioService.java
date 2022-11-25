@@ -31,4 +31,22 @@ public class FuncionarioService implements IFuncionarioService {
         data.deleteById(id);
     }
     
+    @Override
+    public List<Funcionario> Buscar(String dato) {
+        
+        return data.buscarPorTodo(dato);
+    }
+    
+    @Override
+    public List<Funcionario> OrdenAscendente() {
+        return data.OrderAsc();
+    }
+
+    @Override
+    public List<Funcionario> OrdenDescendente() {
+        return data.OrderDesc();
+    }
+
+    
+    
 }

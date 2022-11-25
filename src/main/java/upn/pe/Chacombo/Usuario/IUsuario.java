@@ -12,4 +12,18 @@ public interface IUsuario extends CrudRepository<Usuario,Integer>{
             + "AND clave = ?2)",nativeQuery=true)
             
     int buscarUsuario(String usu,String cla);
+    
+    @Query(value="SELECT * FROM usuario "
+            + "WHERE usuario LIKE %?1% "
+            + "OR clave LIKE %?1% ",nativeQuery=true)
+    List<Usuario> buscarPorTodo(String dato);
+    
+    
+    @Query(value="SELECT * FROM usuario "
+            + "ORDER BY id_usuario ASC",nativeQuery=true)
+    List<Usuario> OrderAsc();
+    
+    @Query(value="SELECT * FROM usuario "
+            + "ORDER BY id_usuario DESC",nativeQuery=true)
+    List<Usuario> OrderDesc();
 }

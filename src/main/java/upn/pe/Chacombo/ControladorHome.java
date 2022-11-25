@@ -307,23 +307,6 @@ public class ControladorHome {
         return "listaCliente"; //listacliente.html
     }
     
-    @PostMapping("/RegistrarCli")
-    public String RegistrarCliente(@RequestParam("nom") String nom,
-            @RequestParam("corr") String corr,
-            @RequestParam("telf") String telf,
-            @RequestParam("dire") String dire,
-            Model model) {
-        Cliente c = new Cliente();
-        c.setNombres(nom);
-        c.setCorreo(corr);
-        c.setTelefono(telf);
-        c.setDireccion(dire);
-        
-        serviceCliente.Guardar(c);
-        
-        return "listaCliente"; //listacliente.html
-    }
-    
     @PostMapping("/actualizarCli")
     public String ActualizarCliente(@RequestParam("id") int id,
             @RequestParam("nombres") String nom,
@@ -468,5 +451,76 @@ public class ControladorHome {
         List<Producto> productos = service.Buscar(dato);
         model.addAttribute("productos", productos);
         return "listaProducto"; //listaproductos.html
+    }
+    
+    @GetMapping("/Usuarios")
+    public String ListarUsuarios(Model model) {
+        List<Usuario> usuarios = serviceUsu.Listar();
+        model.addAttribute("usuarios", usuarios);
+        return "listaUsuario"; //listaFuncionario.html
+    }
+    
+    @GetMapping("/eliminarFun")
+    public String EliminarUsuarios(@RequestParam("id") int id, Model model) {
+        serviceFun.Eliminar(id);
+        return "listaUsuario"; //listaFuncionario.html
+    }
+    
+    @PostMapping("/RegistrarUsu")
+    public String RegistrarUsuario(
+            @RequestParam("usu") String usu,
+            @RequestParam("clave") String clave,
+            Model model) {
+        Usuario u = new Usuario();
+        u.setUsuario(usu);
+        u.setClave(clave);
+        
+        serviceUsu.Guardar(u);
+        
+        return "listaUsuario"; //listaUsuario.html
+    }
+    
+    @PostMapping("/actualizarUsu")
+    public String ActualizarUsu(@RequestParam("id") int id,
+            @RequestParam("usuario") String usuario,
+            @RequestParam("clave") String clave,
+            Model model) {
+        Usuario u = new Usuario();
+        u.setIdUsuario(id);
+        u.setUsuario(usuario);
+        u.setClave(clave);
+        
+        serviceUsu.Guardar(u);
+        
+        return "indexUsuario"; //listaFuncionario.html
+    }
+    
+    @GetMapping("/editarUsu")
+    public String EditarUsu(@RequestParam("id") int id, Model model) {
+        Optional<Usuario> usuario = serviceUsu.ConsultarId(id);
+        model.addAttribute("usuario", usuario);
+        
+        return "listaUsuario"; //listaUsuario.html
+    }
+    
+    @PostMapping("/buscarUsu")
+    public String BuscarUsu(@RequestParam("dato") String dato, Model model) {
+        List<Usuario> usuarios = serviceUsu.Buscar(dato);
+        model.addAttribute("usuarios", usuarios);
+        return "listaUsuario"; //listaUsuario.html
+    }
+    
+    @GetMapping("/orden_ascUsu")
+    public String OrdenarAscUsu(Model model) {
+        List<Usuario> usuarios = serviceUsu.OrdenAscendente();
+        model.addAttribute("usuarios", usuarios);
+        return "listaUsuario"; //listaUsuario.html
+    }
+    
+    @GetMapping("/orden_descUsu")
+    public String OrdenarDescUsu(Model model) {
+        List<Usuario> usuarios = serviceUsu.OrdenDescendente();
+        model.addAttribute("usuarios", usuarios);
+        return "listaUsuario"; //listaUsuario.html
     }
 }

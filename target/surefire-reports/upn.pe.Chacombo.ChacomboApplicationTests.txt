@@ -1,4 +1,17 @@
 -------------------------------------------------------------------------------
 Test set: upn.pe.Chacombo.ChacomboApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.091 s - in upn.pe.Chacombo.ChacomboApplicationTests
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 6.837 s <<< FAILURE! - in upn.pe.Chacombo.ChacomboApplicationTests
+contextLoads  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.IllegalStateException: Failed to load ApplicationContext
+Caused by: org.springframework.beans.factory.BeanCreationException: 
+Error creating bean with name 'requestMappingHandlerMapping' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.IllegalStateException: Ambiguous mapping. Cannot map 'controladorHome' method 
+upn.pe.Chacombo.ControladorHome#EliminarFuncionario(int, Model)
+to {GET [/eliminarFun]}: There is already 'controladorHome' bean method
+upn.pe.Chacombo.ControladorHome#EliminarUsuarios(int, Model) mapped.
+Caused by: java.lang.IllegalStateException: 
+Ambiguous mapping. Cannot map 'controladorHome' method 
+upn.pe.Chacombo.ControladorHome#EliminarFuncionario(int, Model)
+to {GET [/eliminarFun]}: There is already 'controladorHome' bean method
+upn.pe.Chacombo.ControladorHome#EliminarUsuarios(int, Model) mapped.
+

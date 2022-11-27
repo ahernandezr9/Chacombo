@@ -62,18 +62,15 @@ public class ControladorHome {
     String carpetaPrd = "Producto/";
     String carpetaCli = "Cliente/";
     String carpetaFun = "Funcionario/";
+    int parametro ;
     
     @GetMapping("/")
     public String Mostrar(Model model) {
+        parametro +=0;
         List<Producto> productos = service.Listar();
         model.addAttribute("productos", productos);
-        
+        model.addAttribute("parametro", parametro);
         return "index"; //index.html
-    }
-    
-    @GetMapping("/login")
-    public String Login(Model model) {
-        return "Login";
     }
     
     @PostMapping("/LoginUsu")
@@ -81,8 +78,10 @@ public class ControladorHome {
         int ValidaUsu = serviceUsu.LoginUsu(datoUsu, datoCla);
         
         if (ValidaUsu == 1) {
+            parametro = 0;
             return "indexUsuario"; //indexUsuario.html
         } else {
+            parametro +=1;
             return Mostrar(model);
         }
     }

@@ -67,9 +67,22 @@
                     });
                 }
             }
+            
+            function validar()
+            {
+                var parametro = document.getElementById("parametro").value;
+                if (parametro >0)
+                {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Credenciales Incorrectos',
+                    })
+                }
+
+            }
         </script>
     </head>
-    <body>
+    <body onload="validar()">
         <div>
             <div class="container">
                 <div th:insert=" Menu :: #menu"></div>

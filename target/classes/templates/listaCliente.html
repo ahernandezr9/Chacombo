@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+        <link rel="icon" href="faviadmin.ico">
         <title>Clientes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,28 +101,28 @@
                     }
                 });
             }
-            
+
             function Editar()
             {
                 const exampleModal = document.getElementById('modalEditar');
                 exampleModal.addEventListener('show.bs.modal', event => {
                     // Button that triggered the modal
                     const button = event.relatedTarget;
-                    
+
                     //Datos
                     const id = button.getAttribute('data-bs-id');
                     const nom = button.getAttribute('data-bs-nom');
                     const corr = button.getAttribute('data-bs-corr');
                     const telf = button.getAttribute('data-bs-telf');
                     const dire = button.getAttribute('data-bs-dire');
-                   
+
                     //Campos
                     const campoId = document.getElementById('id');
                     const campoNom = document.getElementById('nomx');
                     const campoCorr = document.getElementById('corrx');
                     const campoTelf = document.getElementById('telfx');
                     const campoDire = document.getElementById('direx');
-                    
+
                     //Colocar los datos a los campos
                     campoId.value = id;
                     campoNom.value = nom;
@@ -135,20 +137,20 @@
         <div class="container">
             <div th:insert=" Menu :: #menuUsuario"></div>
             <br>
-            
+
             <div>
-                
+
                 <a th:href="@{orden_asccli}" class="btn btn-warning" ><i class="bi bi-sort-up"></i></a>
                 <a th:href="@{orden_desccli}" class="btn btn-info"><i class="bi bi-sort-down"></i></a>
-                
+
             </div>
-            
+
             <br>
             <form class="d-flex" role="search" action="buscarCli" method="POST">
                 <input class="form-control me-2" name="dato" type="search" placeholder="Buscar" aria-label="Buscar">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
-            
+
             <br>
             <div class="container bg-white text-dark" style="--bs-bg-opacity: .8;">
 
@@ -185,7 +187,7 @@
                 </table>
             </div>
         </div>
-        
+
         <!-- Model EDITAR/ACTUALIZAR -->
         <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

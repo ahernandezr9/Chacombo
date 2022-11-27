@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        
+        <link rel="icon" href="faviadmin.ico">
         <title>Productos</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,14 +18,14 @@
             function Registrar()
             {
                 event.preventDefault();
-                
+
                 const imag = document.getElementById("imag").value;
                 const tip = document.getElementById("tip").value;
                 const prec = document.getElementById("prec").value;
                 const nom = document.getElementById("nom").value;
                 const desc = document.getElementById("desc").value;
-                
-                
+
+
                 if (nom == "" || desc == "" || prec == "" || tip == "" || imag == "")
                 {
                     //Puedes aqui poner una alerta: llene los campos

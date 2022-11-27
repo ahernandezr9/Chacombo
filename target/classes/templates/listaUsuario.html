@@ -71,12 +71,12 @@
                 event.preventDefault();
 
                 //const id = document.getElementById("id").value;
-                //const func = document.getElementById("func").value;
+                const func = document.getElementById("func").value;
                 const usu = document.getElementById("usux").value;
                 const clave = document.getElementById("clavex").value;
 
 
-                if (usu == "" || clave == "")
+                if (func == "" || usu == "" || clave == "")
                 {
                     //Puedes aqui poner una alerta: llene los campos
                     Swal.fire({
@@ -193,23 +193,8 @@
                 <input class="form-control me-2" name="dato" type="search" placeholder="Buscar" aria-label="Buscar">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
-<<<<<<< HEAD
-            
-           <!-- <div>
-=======
-
-            <div>
->>>>>>> 674a0fd3265d5c86bfcae78d63c06d58b2fda3ea
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="bi bi-plus-circle"></i></button>
-            </div>-->
             <br>
-<<<<<<< HEAD
-            
-=======
 
-
-
->>>>>>> 674a0fd3265d5c86bfcae78d63c06d58b2fda3ea
             <div class="container bg-white text-dark" style="--bs-bg-opacity: .8;">
 
                 <table class="table table-striped" id="tableAtencion">
@@ -243,44 +228,8 @@
             </div>
         </div>
 
-        <!-- Model REGISTRAR
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo Usuario</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="RegistrarUsu" method="POST" id="RegistrarUsu">
-                            
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Fucionario:</label>
-                                <input type="text" name="id_usu" id="id_usu" class="form-control" placeholder="Ingrese Funcionario" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Usuario:</label>
-                                <input type="text" name="usu" id="usu" class="form-control" placeholder="Ingrese Usuario" >
-                            </div>
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Clave:</label>
-                                <input type="text" name="clave" id="clave" class="form-control" placeholder="Ingrese Clave" >
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button onclick="return Registrar()" type="button" class="btn btn-primary">Registrar</button>
-                    </div>
-                </div>
-            </div>
-<<<<<<< HEAD
-        </div> -->
-        
-=======
-        </div>
+     
 
->>>>>>> 674a0fd3265d5c86bfcae78d63c06d58b2fda3ea
         <!-- Model EDITAR/ACTUALIZAR -->
         <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -290,9 +239,13 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <form action="actualizarUsu" method="POST" id="actualizarFun">
+                        <form action="actualizarUsu" method="POST" id="actualizarUsu">
                             <input type="hidden" name="id" id="id">
-                            <input type="hidden" name="func" id="func">
+                            
+                            <div class="mb-3">
+                                <label for="recipient-name" class="col-form-label">Funcionario:</label>
+                                <input type="text" name="funcionario" id="func" class="form-control" placeholder="Funcionario" readonly="" >
+                            </div>
                             <div class="mb-3">
                                 <label for="recipient-name" class="col-form-label">Usuario:</label>
                                 <input type="text" name="usuario" id="usux" class="form-control" placeholder="Ingrese Usuario" >

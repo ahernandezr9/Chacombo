@@ -465,33 +465,35 @@ public class ControladorHome {
         return "listaUsuario"; //listaFuncionario.html
     }
     
-    @GetMapping("/eliminarUsu")
-    public String EliminarUsuarios(@RequestParam("id") int id, Model model) {
-        serviceFun.Eliminar(id);
-        return "listaUsuario"; //listaFuncionario.html
-    }
-    
-    @PostMapping("/RegistrarUsu")
-    public String RegistrarUsuario(
-            @RequestParam("usu") String usu,
-            @RequestParam("clave") String clave,
-            Model model) {
-        Usuario u = new Usuario();
-        u.setUsuario(usu);
-        u.setClave(clave);
-        
-        serviceUsu.Guardar(u);
-        
-        return "listaUsuario"; //listaUsuario.html
-    }
+//    @GetMapping("/eliminarUsu")
+//    public String EliminarUsuarios(@RequestParam("id") int id, Model model) {
+//        serviceFun.Eliminar(id);
+//        return "listaUsuario"; //listaFuncionario.html
+//    }
+//    
+//    @PostMapping("/RegistrarUsu")
+//    public String RegistrarUsuario(
+//            @RequestParam("usu") String usu,
+//            @RequestParam("clave") String clave,
+//            Model model) {
+//        Usuario u = new Usuario();
+//        u.setUsuario(usu);
+//        u.setClave(clave);
+//        
+//        serviceUsu.Guardar(u);
+//        
+//        return "listaUsuario"; //listaUsuario.html
+//    }
     
     @PostMapping("/actualizarUsu")
     public String ActualizarUsu(@RequestParam("id") int id,
+            @RequestParam("funcionario") Funcionario func,
             @RequestParam("usuario") String usuario,
             @RequestParam("clave") String clave,
             Model model) {
         Usuario u = new Usuario();
         u.setIdUsuario(id);
+        u.setFunc(func);
         u.setUsuario(usuario);
         u.setClave(clave);
         

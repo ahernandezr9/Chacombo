@@ -226,7 +226,7 @@ public class ControladorHome {
         
         listaCarrito.clear();//Limpiar Array Productos del carrito
         listaDatCarrito.clear();//Limpiar datos del Cliente del carrito
-        return "index"; //listaProducto.html
+        return Mostrar(model); //listaProducto.html
     }
     
     @GetMapping("/Dashboard")

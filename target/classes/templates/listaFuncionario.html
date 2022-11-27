@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="icon" href="faviadmin.ico">
         <title>Funcionarios</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,7 +63,7 @@
                     });
                 }
             }
-            
+
             function Actualizar()
             {
                 event.preventDefault();
@@ -147,26 +148,26 @@
                     }
                 });
             }
-            
+
             function Editar()
             {
                 const exampleModal = document.getElementById('modalEditar');
                 exampleModal.addEventListener('show.bs.modal', event => {
                     // Button that triggered the modal
                     const button = event.relatedTarget;
-                    
+
                     //Datos
                     const id = button.getAttribute('data-bs-id');
                     const nom = button.getAttribute('data-bs-nom');
                     const dni = button.getAttribute('data-bs-dni');
                     const corr = button.getAttribute('data-bs-corr');
-                   
+
                     //Campos
                     const campoId = document.getElementById('id');
                     const campoNom = document.getElementById('nomx');
                     const campoDni = document.getElementById('dnix');
                     const campoCorr = document.getElementById('corrx');
-                    
+
                     //Colocar los datos a los campos
                     campoId.value = id;
                     campoNom.value = nom;
@@ -180,7 +181,7 @@
         <div class="container">
             <div th:insert=" Menu :: #menuUsuario"></div>
             <br>
-            
+
             <div>
                 <a th:href="@{orden_ascFun}" class="btn btn-warning"><i class="bi bi-sort-up"></i></a>
                 <a th:href="@{orden_descFun}" class="btn btn-info"><i class="bi bi-sort-down"></i></a>
@@ -190,14 +191,14 @@
                 <input class="form-control me-2" name="dato" type="search" placeholder="Buscar" aria-label="Buscar">
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
-            
+
             <div>
                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="bi bi-plus-circle"></i></button>
             </div>
             <br>
-            
-            
-            
+
+
+
             <div class="container bg-white text-dark" style="--bs-bg-opacity: .8;">
 
                 <table class="table table-striped" id="tableAtencion">
@@ -263,7 +264,7 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Model EDITAR/ACTUALIZAR -->
         <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">

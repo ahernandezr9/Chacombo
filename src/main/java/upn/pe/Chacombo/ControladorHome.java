@@ -208,19 +208,18 @@ public class ControladorHome {
         
         serviceVenta.Guardar(v);
 
-        //Guardar en tabla Detalle Venta
-        DetalleVenta dv = new DetalleVenta();
-        dv.setId(ventaid);
-        dv.setVenta(v);
+        Producto prod = new Producto();       
         
         for (int i = 0; i < listaCarrito.size(); i++) {
-            if (listaCarrito.get(i).getIdProducto() == pro.getIdProducto()) {
-                dv.setPrd(pro);
-                dv.setCantidad(listaCarrito.get(i).getCantidad());
-            }
+            DetalleVenta dv = new DetalleVenta();
+            prod.setIdProducto(listaCarrito.get(i).getIdProducto());
+            
+            //Guardar en tabla Detalle Venta
+            dv.setVenta(v);
+            dv.setPrd(prod);
+            dv.setCantidad(listaCarrito.get(i).getCantidad());
+            serviceDetVenta.Guardar(dv);
         }
-        
-        serviceDetVenta.Guardar(dv);
         
         model.addAttribute("detalleProducto", listaCarrito);
         model.addAttribute("detalleCliente", listaDatCarrito);
@@ -264,7 +263,7 @@ public class ControladorHome {
         
         service.Guardar(p);
         
-        return "listaProducto"; //listaProducto.html
+        return "index"; //listaProducto.html
     }
     
     @PostMapping("/actualizarPrd")
@@ -455,36 +454,13 @@ public class ControladorHome {
         return "listaProducto"; //listaproductos.html
     }
     
-    
-    
-   
     @GetMapping("/Usuarios")
     public String ListarUsuarios(Model model) {
         List<Usuario> usuarios = serviceUsu.Listar();
         model.addAttribute("usuarios", usuarios);
         return "listaUsuario"; //listaFuncionario.html
     }
-    
-//    @GetMapping("/eliminarUsu")
-//    public String EliminarUsuarios(@RequestParam("id") int id, Model model) {
-//        serviceFun.Eliminar(id);
-//        return "listaUsuario"; //listaFuncionario.html
-//    }
-//    
-//    @PostMapping("/RegistrarUsu")
-//    public String RegistrarUsuario(
-//            @RequestParam("usu") String usu,
-//            @RequestParam("clave") String clave,
-//            Model model) {
-//        Usuario u = new Usuario();
-//        u.setUsuario(usu);
-//        u.setClave(clave);
-//        
-//        serviceUsu.Guardar(u);
-//        
-//        return "listaUsuario"; //listaUsuario.html
-//    }
-    
+        
     @PostMapping("/actualizarUsu")
     public String ActualizarUsu(@RequestParam("id") int id,
             @RequestParam("funcionario") Funcionario func,

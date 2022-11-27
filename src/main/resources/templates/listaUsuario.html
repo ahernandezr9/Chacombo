@@ -15,57 +15,6 @@
         <!-- SweetAlert2-->
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
-            function Registrar()
-            {
-                event.preventDefault();
-
-                const id_usu = document.getElementById("id_usu").value;
-                const usu = document.getElementById("usu").value;
-                const clave = document.getElementById("clave").value;
-                
-
-
-                if (id_usu == "" || usu == "" || clave == "")
-                {
-                    //Puedes aqui poner una alerta: llene los campos
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'Something went wrong!',
-                        footer: '<a href="">Why do I have this issue?</a>'
-                    });
-
-                } else
-                {
-                    Swal.fire({
-                        title: 'Do you want to save the changes?',
-                        showDenyButton: true,
-                        showCancelButton: true,
-                        confirmButtonText: 'Save',
-                        denyButtonText: `Don't save`,
-                        allowOutsideClick: false,
-                        allowEscapeKey: false
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire({
-                                title: 'Saved!',
-                                text: '',
-                                icon: 'success',
-                                allowOutsideClick: false,
-                                allowEscapeKey: false
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    const formulario = document.getElementById("RegistrarUsu");
-                                    formulario.submit();
-                                }
-                            });
-                        } else if (result.isDenied) {
-                            Swal.fire('Changes are not saved', '', 'info');
-                        }
-                    });
-                }
-            }
-
             function Actualizar()
             {
                 event.preventDefault();
@@ -115,40 +64,6 @@
                         }
                     });
                 }
-            }
-
-
-            function Eliminar(opcion)
-            {
-                event.preventDefault();
-
-                Swal.fire({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!',
-                    allowOutsideClick: false,
-                    allowEscapeKey: false
-                }).then((result) => {
-                    if (result.isConfirmed) {
-
-                        Swal.fire({
-                            title: 'Deleted!',
-                            text: 'Your file has been deleted.',
-                            icon: 'success',
-                            allowOutsideClick: false,
-                            allowEscapeKey: false
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                location.href = opcion.href;
-                            }
-                        });
-
-                    }
-                });
             }
 
             function Editar()
@@ -217,11 +132,6 @@
                                 <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalEditar" th:attr="data-bs-id=${usuario.IdUsuario},data-bs-func=${usuario.func.IdFuncionario},data-bs-usu=${usuario.Usuario},data-bs-clave=${usuario.Clave}" ><i class="bi bi-pencil-square"></i></button>
                                 <!--<a onclick="return Editar(this)" th:href="@{/editarPrd(id=${producto.IdProducto})}" class="btn btn-success"> <i class="bi bi-pencil-square"></i></a>-->
                             </div>
-                        </td>
-                        <td>
-                          <!--  <div class="col">
-                                <a onclick="return Eliminar(this)" th:href="@{/eliminarUsu(id=${usuario.IdUsuario})}" class="btn btn-danger"> <i class="bi bi-trash3"></i></a>
-                            </div>-->
                         </td>
                     </tr>
                 </table>

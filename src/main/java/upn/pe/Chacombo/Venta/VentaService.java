@@ -34,4 +34,9 @@ public class VentaService implements IVentaService{
     public int IdMaxVenta() {
         return data.BuscarIdMax();
     }
+    
+    @Override
+    public List<Venta> VentasXCliente(int id) {
+        return data.VentasXCliente(id);
+    }
 }

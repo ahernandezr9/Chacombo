@@ -10,4 +10,5 @@ public interface IVentaService {
     public void Guardar(Venta p);
     public void Eliminar(int id);
     public int IdMaxVenta();
+    public List<Venta> VentasXCliente(int id);
 }

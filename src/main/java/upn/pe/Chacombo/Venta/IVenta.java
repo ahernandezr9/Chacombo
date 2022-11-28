@@ -9,4 +9,9 @@ import org.springframework.stereotype.Repository;
 public interface IVenta extends CrudRepository<Venta,Integer> {
     @Query(value="SELECT COALESCE(MAX(id_venta),0) FROM venta",nativeQuery=true)
     int BuscarIdMax();
+    
+    @Query(value="SELECT * FROM venta "
+            + "INNER JOIN cliente ON venta.id_cliente = cliente.id_cliente "
+            + "WHERE venta.id_cliente = ?1",nativeQuery=true)
+    List<Venta> VentasXCliente(int id);
 }

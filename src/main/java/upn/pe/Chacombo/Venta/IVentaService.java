@@ -11,4 +11,5 @@ public interface IVentaService {
     public void Eliminar(int id);
     public int IdMaxVenta();
     public List<Venta> VentasXCliente(int id);
+    public List<Venta> VentasXPago(int id);
 }

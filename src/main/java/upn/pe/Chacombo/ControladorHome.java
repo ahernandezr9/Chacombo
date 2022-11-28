@@ -524,4 +524,24 @@ public class ControladorHome {
         model.addAttribute("graphData", graphData);
         return "GraficoReporte";
     }
+    
+    @GetMapping("/reporte2")
+    public String ReporteGrafico2(Model model) {
+        Map<String, Integer> graphData2 = new TreeMap<>();
+      
+        List<Pago> pagos = servicePago.Listar();
+        for (int i = 0; i < pagos.size(); i++){
+            
+            int id = pagos.get(i).getIdPago();
+            String nom = pagos.get(i).getTipo() + " " + pagos.get(i);
+            List<Venta> ventas = serviceVenta.VentasXPago(id);  
+            int cant = ventas.size();
+            
+            graphData2.put(nom, cant);
+            
+        }
+        
+        model.addAttribute("graphData2", graphData2);
+        return "GraficoReporte2";
+    }
 }

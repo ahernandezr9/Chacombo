@@ -39,4 +39,9 @@ public class VentaService implements IVentaService{
     public List<Venta> VentasXCliente(int id) {
         return data.VentasXCliente(id);
     }
+    
+    @Override
+    public List<Venta> VentasXPago(int id) {
+        return data.VentasXPago(id);
+    }
 }

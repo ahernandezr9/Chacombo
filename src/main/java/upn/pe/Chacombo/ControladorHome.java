@@ -324,7 +324,7 @@ public class ControladorHome {
         
         serviceCliente.Guardar(c);
         
-        return "indexUsuario"; //listacliente.html
+        return "listaCliente"; //listacliente.html
     }
     
     @GetMapping("/editarCli")

@@ -21,4 +21,7 @@ public interface IProducto extends CrudRepository<Producto,Integer>{
     @Query(value="SELECT * FROM producto "
             + "ORDER BY id_producto DESC",nativeQuery=true)
     List<Producto> OrderDescProd();
+    
+    @Query(value="SELECT COALESCE(MAX(id_producto),0) FROM producto",nativeQuery=true)
+    int BuscarIdMax();
 }

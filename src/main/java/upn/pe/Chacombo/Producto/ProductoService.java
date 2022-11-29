@@ -44,4 +44,9 @@ public class ProductoService implements IProductoService {
     public List<Producto> Buscar(String dato) {
         return data.buscarPorTodo(dato);
     }
+    
+    @Override
+    public int IdMaxProducto() {
+        return data.BuscarIdMax();
+    }
 }

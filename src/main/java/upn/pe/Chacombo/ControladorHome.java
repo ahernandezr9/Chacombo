@@ -62,18 +62,15 @@ public class ControladorHome {
     String carpetaPrd = "Producto/";
     String carpetaCli = "Cliente/";
     String carpetaFun = "Funcionario/";
+    int parametro ;
     
     @GetMapping("/")
     public String Mostrar(Model model) {
+        parametro +=0;
         List<Producto> productos = service.Listar();
         model.addAttribute("productos", productos);
-        
+        model.addAttribute("parametro", parametro);
         return "index"; //index.html
-    }
-    
-    @GetMapping("/login")
-    public String Login(Model model) {
-        return "Login";
     }
     
     @PostMapping("/LoginUsu")
@@ -81,8 +78,10 @@ public class ControladorHome {
         int ValidaUsu = serviceUsu.LoginUsu(datoUsu, datoCla);
         
         if (ValidaUsu == 1) {
+            parametro = 0;
             return "indexUsuario"; //indexUsuario.html
         } else {
+            parametro +=1;
             return Mostrar(model);
         }
     }
@@ -131,12 +130,12 @@ public class ControladorHome {
     
     @PostMapping("/CompraCliente")
     public String CompraRegClientes(@RequestParam("nom") String nom,
-            @RequestParam("corr") String corr,
-            @RequestParam("telf") String telf,
-            @RequestParam("direc") String direc,
-            @RequestParam("pag") int pag,
-            @RequestParam("entr") int entr,
-            Model model) {
+                                    @RequestParam("corr") String corr,
+                                    @RequestParam("telf") String telf,
+                                    @RequestParam("direc") String direc,
+                                    @RequestParam("pag") int pag,
+                                    @RequestParam("entr") int entr,
+                                    Model model) {
         ClienteAux cAux = new ClienteAux();
         cAux.setNombres(nom);
         cAux.setCorreo(corr);
@@ -170,9 +169,9 @@ public class ControladorHome {
     
     @PostMapping("/FinCompra")
     public String RegistrarCompra(@RequestParam("pag") Pago pag,
-            @RequestParam("entr") Entrega entr,
-            @RequestParam("pro") Producto pro,
-            Model model) {
+                                @RequestParam("entr") Entrega entr,
+                                @RequestParam("pro") Producto pro,
+                                Model model) {
         Integer ventaid = serviceVenta.IdMaxVenta();
         ventaid += 1;
         
@@ -249,11 +248,11 @@ public class ControladorHome {
     
     @PostMapping("/RegistrarPrd")
     public String RegistrarProducto(@RequestParam("nom") String nom,
-            @RequestParam("desc") String desc,
-            @RequestParam("prec") float prec,
-            @RequestParam("tip") String tip,
-            @RequestParam("imag") String imag,
-            Model model) {
+                                    @RequestParam("desc") String desc,
+                                    @RequestParam("prec") float prec,
+                                    @RequestParam("tip") String tip,
+                                    @RequestParam("imag") String imag,
+                                    Model model) {
         Producto p = new Producto();
         p.setNombre(nom);
         p.setDescripcion(desc);
@@ -263,17 +262,17 @@ public class ControladorHome {
         
         service.Guardar(p);
         
-        return "index"; //listaProducto.html
+        return "indexUsuario"; //listaProducto.html
     }
     
     @PostMapping("/actualizarPrd")
     public String Actualizar(@RequestParam("id") int id,
-            @RequestParam("nombre") String nom,
-            @RequestParam("descripcion") String desc,
-            @RequestParam("precio") float prec,
-            @RequestParam("tipo") String tip,
-            @RequestParam("imagen") String image,
-            Model model) {
+                            @RequestParam("nombre") String nom,
+                            @RequestParam("descripcion") String desc,
+                            @RequestParam("precio") float prec,
+                            @RequestParam("tipo") String tip,
+                            @RequestParam("imagen") String image,
+                            Model model) {
         Producto p = new Producto();
         p.setIdProducto(id);
         p.setNombre(nom);
@@ -506,5 +505,43 @@ public class ControladorHome {
         model.addAttribute("usuarios", usuarios);
         return "listaUsuario"; //listaUsuario.html
     }
-
+    
+    @GetMapping("/reporte")
+    public String ReporteGrafico(Model model) {
+        Map<String, Integer> graphData = new TreeMap<>();
+      
+        List<Cliente> clientes = serviceCliente.Listar();
+        for (int i = 0; i < clientes.size(); i++){
+            
+            int id = clientes.get(i).getIdCliente();
+            String nom = clientes.get(i).getNombres() + " " + clientes.get(i);
+            List<Venta> ventas = serviceVenta.VentasXCliente(id);  
+            int cant = ventas.size();
+            
+            graphData.put(nom, cant);            
+        }
+        
+        model.addAttribute("graphData", graphData);
+        return "GraficoReporte";
+    }
+    
+    @GetMapping("/reporte2")
+    public String ReporteGrafico2(Model model) {
+        Map<String, Integer> graphData2 = new TreeMap<>();
+      
+        List<Pago> pagos = servicePago.Listar();
+        for (int i = 0; i < pagos.size(); i++){
+            
+            int id = pagos.get(i).getIdPago();
+            String nom = pagos.get(i).getTipo() + " " + pagos.get(i);
+            List<Venta> ventas = serviceVenta.VentasXPago(id);  
+            int cant = ventas.size();
+            
+            graphData2.put(nom, cant);
+            
+        }
+        
+        model.addAttribute("graphData2", graphData2);
+        return "GraficoReporte2";
+    }
 }

@@ -538,11 +538,9 @@ public class ControladorHome {
             int cant = ventas.size();
             
             graphData2.put(nom, cant);
-            
         }
         
         model.addAttribute("graphData2", graphData2);
         return "GraficoReporte2";
     }
-    
 }

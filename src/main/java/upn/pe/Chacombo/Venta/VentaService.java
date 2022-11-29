@@ -44,5 +44,4 @@ public class VentaService implements IVentaService{
     public List<Venta> VentasXPago(int id) {
         return data.VentasXPago(id);
     }
-    
 }

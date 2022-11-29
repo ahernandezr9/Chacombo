@@ -19,4 +19,5 @@ public interface IVenta extends CrudRepository<Venta,Integer> {
             + "INNER JOIN pago ON venta.id_pago = pago.id_pago "
             + "WHERE venta.id_pago = ?1",nativeQuery=true)
     List<Venta> VentasXPago(int id);
+    
 }

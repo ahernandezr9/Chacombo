@@ -544,4 +544,5 @@ public class ControladorHome {
         model.addAttribute("graphData2", graphData2);
         return "GraficoReporte2";
     }
+    
 }

@@ -12,4 +12,5 @@ public interface IVentaService {
     public int IdMaxVenta();
     public List<Venta> VentasXCliente(int id);
     public List<Venta> VentasXPago(int id);
+    
 }
